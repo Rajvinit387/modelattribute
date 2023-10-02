@@ -1,0 +1,171 @@
+<!--
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" >
+    <input type="number" name="userId"/> <br>
+    <input type="text"  name="firstname" /><br>
+    <input type="text"  name="secondname"  /><br>
+    <input type="text" name="street" /><br>
+    <input type="text"  name="pincode"/><br>
+    <input type="text" name="city"/><br>
+    <input type="text"  name="state_code"/><br>
+    <button type="Submit">Submit</button> </form>
+</body>
+</html>
+
+it will work fine and no need to pass model from controller to view
+-->
+
+<!--
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" >
+    <input type="number" th:field="*{userId}"/> <br>
+    <input type="text"  th:field="*{firstname}" /><br>
+    <input type="text"  th:field="*{secondname}"  /><br>
+    <input type="text" th:field="*{street}" /><br>
+    <input type="text"  th:field="*{pincode}"/><br>
+    <input type="text" th:field="*{city}"/><br>
+    <input type="text"  th:field="*{state_code}"/><br>
+    <button type="Submit">Submit</button> </form>
+</body>
+</html>
+
+it will give error because no bean or obj is selected as * evaluates the property on the selected objects
+
+
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" >
+    <input type="number" th:field="userId"/> <br>
+    <input type="text"  th:field="firstname" /><br>
+    <input type="text"  th:field="secondname"  /><br>
+    <input type="text" th:field="street" /><br>
+    <input type="text"  th:field="pincode"/><br>
+    <input type="text" th:field="city"/><br>
+    <input type="text"  th:field="state_code"/><br>
+    <button type="Submit">Submit</button> </form>
+</body>
+</html>
+it will give error because * or $ are allowed in spring field binding
+
+
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" >
+    <input type="number" th:field="${userId}"/> <br>
+    <input type="text"  th:field="${firstname}" /><br>
+    <input type="text"  th:field="${secondname}"  /><br>
+    <input type="text" th:field="${street}" /><br>
+    <input type="text"  th:field="${pincode}"/><br>
+    <input type="text" th:field="${city}"/><br>
+    <input type="text"  th:field="${state_code}"/><br>
+    <button type="Submit">Submit</button> </form>
+</body>
+</html>
+
+
+it will also give error as NO object is defined
+
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" >
+    <input type="number" th:field="${object.userId}"/> <br>
+    <input type="text"  th:field="${object.firstname}" /><br>
+    <input type="text"  th:field="${object.secondname}"  /><br>
+    <input type="text" th:field="${object.street}" /><br>
+    <input type="text"  th:field="${object.pincode}"/><br>
+    <input type="text" th:field="${object.city}"/><br>
+    <input type="text"  th:field="${object.state_code}"/><br>
+    <button type="Submit">Submit</button> </form>
+</body>
+</html>
+it will work fine but we need to pass model from controller to view
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" >
+    <input type="number" th:field="*{object.userId}"/> <br>
+    <input type="text"  th:field="*{object.firstname}" /><br>
+    <input type="text"  th:field="*{object.secondname}"  /><br>
+    <input type="text" th:field="*{object.street}" /><br>
+    <input type="text"  th:field="*{object.pincode}"/><br>
+    <input type="text" th:field="*{object.city}"/><br>
+    <input type="text"  th:field="*{object.state_code}"/><br>
+    <button type="Submit">Submit</button> </form>
+</body>
+</html>
+it will work fine but we need to pass model from controller to view
+
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" th:object="${object}" >
+    <input type="number" th:field="*{userId}"/> <br> or we can use name="userId", name="firstname"......
+    <input type="text"  th:field="*{firstname}" /><br>
+    <input type="text"  th:field="*{secondname}"  /><br>
+    <input type="text" th:field="*{street}" /><br>
+    <input type="text"  th:field="*{pincode}"/><br>
+    <input type="text" th:field="*{city}"/><br>
+    <input type="text"  th:field="*{state_code}"/><br>
+    <button type="Submit">Submit</button> </form>
+</body>
+</html>
+-->
+<!--it will also work fine but we need to pass model from controller to view-->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="${title}"></title>
+</head>
+<body>
+<form th:action="@{/process}" th:object="${object}" >
+  <input type="number" th:field="${userId}"/> <br>
+  <input type="text"  th:field="${firstname}" /><br>
+  <input type="text"  th:field="${secondname}"  /><br>
+  <input type="text" th:field="${street}" /><br>
+  <input type="text"  th:field="${pincode}"/><br>
+  <input type="text" th:field="${city}"/><br>
+  <input type="text"  th:field="${state_code}"/><br>
+  <button type="Submit">Submit</button> </form>
+</body>
+</html>
