@@ -63,7 +63,7 @@ it will give error because no bean or obj is selected as * evaluates the propert
     <button type="Submit">Submit</button> </form>
 </body>
 </html>
-it will give error because * or $ are allowed in spring field binding
+it will give error because * or $ are allowed in spring field binding although we have selected object or not
 
 
 
@@ -89,7 +89,8 @@ it will give error because * or $ are allowed in spring field binding
 
 it will also give error as NO object is defined
 
-
+-->
+<!--
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -107,7 +108,7 @@ it will also give error as NO object is defined
     <input type="text"  th:field="${object.state_code}"/><br>
     <button type="Submit">Submit</button> </form>
 </body>
-</html>
+</html> --> <!--
 it will work fine but we need to pass model from controller to view
 
 <!doctype html>
@@ -130,7 +131,8 @@ it will work fine but we need to pass model from controller to view
 </html>
 it will work fine but we need to pass model from controller to view
 
-
+-->
+<!--
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -139,7 +141,14 @@ it will work fine but we need to pass model from controller to view
 </head>
 <body>
 <form th:action="@{/process}" th:object="${object}" >
-    <input type="number" th:field="*{userId}"/> <br> or we can use name="userId", name="firstname"......
+    <input type="number" th:field="*{userId}"/> <br>
+                                                    or we can use th:name="userId", th:name="firstname".
+                                                     but we can't use th:name="${userId}", th:name="${firstname}"...... kiyuki agar iss
+                                                     case me form submit kroge toh value controller k pass jayegi nhi obviously th:name me naam hi rkhna h bs
+                                                     jo bean me hogi
+                                                     -->
+
+<!--
     <input type="text"  th:field="*{firstname}" /><br>
     <input type="text"  th:field="*{secondname}"  /><br>
     <input type="text" th:field="*{street}" /><br>
@@ -150,7 +159,9 @@ it will work fine but we need to pass model from controller to view
 </body>
 </html>
 -->
-<!--it will also work fine but we need to pass model from controller to view-->
+
+
+<!--it will also work fine but we need to pass model from controller to view -->
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -168,4 +179,4 @@ it will work fine but we need to pass model from controller to view
   <input type="text"  th:field="${state_code}"/><br>
   <button type="Submit">Submit</button> </form>
 </body>
-</html>
+</html> <!--it will not work fine although object is defined via th:object but we need to give object refrence variable in $ symbol as this needs object  inside it for evaluation-->
