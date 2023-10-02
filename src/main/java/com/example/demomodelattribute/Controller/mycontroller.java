@@ -9,8 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-    @Controller
+@Controller
     public class mycontroller {
 
 
@@ -18,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
         public String signup(Model model)
         {
             //model.addAttribute("titte","signup page");
-            model.addAttribute("object", new user());
+           model.addAttribute("object", new user());
             return "signup";
 
         }
         @GetMapping("/process")
-        public String process(@ModelAttribute user user)
+        public String process( @ModelAttribute user user )
         {
-            System.out.println(user.getCity());
+
             return "process";
 
         }

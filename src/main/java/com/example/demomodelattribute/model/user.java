@@ -108,5 +108,16 @@ public class user {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "user{" +
+                "userId=" + userId +
+                ", firstname='" + firstname + '\'' +
+                ", secondname='" + secondname + '\'' +
+                ", street='" + street + '\'' +
+                ", pincode='" + pincode + '\'' +
+                ", city='" + city + '\'' +
+                ", state_code='" + state_code + '\'' +
+                '}';
+    }
 }

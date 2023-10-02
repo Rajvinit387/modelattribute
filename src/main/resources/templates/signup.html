@@ -87,7 +87,7 @@ it will give error because * or $ are allowed in spring field binding although w
 </html>
 
 
-it will also give error as NO object is defined
+it will also give error as NO object is defined object defined v hoga tb v error aayega
 
 -->
 <!--
@@ -144,7 +144,7 @@ it will work fine but we need to pass model from controller to view
     <input type="number" th:field="*{userId}"/> <br>
                                                     or we can use th:name="userId", th:name="firstname".
                                                      but we can't use th:name="${userId}", th:name="${firstname}"...... kiyuki agar iss
-                                                     case me form submit kroge toh value controller k pass jayegi nhi obviously th:name me naam hi rkhna h bs
+                                                     case me form submit kroge(although form submit ho jayega) toh value controller k pass jayegi nhi obviously th:name me naam hi rkhna h bs
                                                      jo bean me hogi
                                                      -->
 
@@ -162,6 +162,7 @@ it will work fine but we need to pass model from controller to view
 
 
 <!--it will also work fine but we need to pass model from controller to view -->
+
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -169,7 +170,7 @@ it will work fine but we need to pass model from controller to view
   <title th:text="${title}"></title>
 </head>
 <body>
-<form th:action="@{/process}" th:object="${object}" >
+<form th:action="@{/process}" th:object="${object}"  >
   <input type="number" th:field="${userId}"/> <br>
   <input type="text"  th:field="${firstname}" /><br>
   <input type="text"  th:field="${secondname}"  /><br>
@@ -179,4 +180,5 @@ it will work fine but we need to pass model from controller to view
   <input type="text"  th:field="${state_code}"/><br>
   <button type="Submit">Submit</button> </form>
 </body>
-</html> <!--it will not work fine although object is defined via th:object but we need to give object refrence variable in $ symbol as this needs object  inside it for evaluation-->
+</html> <!--it will not work fine although object is defined via th:object but we need to give object refrence variable in $ symbol as this needs object  inside it for evaluation
+make sure $ k saath hamesha object use hoga usi me th field use krna h toh-->
